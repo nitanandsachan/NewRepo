@@ -11,60 +11,16 @@ While we execute bulk copy operation without using any transaction,
 
 
 
-----------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+1.Handling Transaction with SqlBulkCopy (9H)
+2.Step by Step adding SqlBulkCopy in Application(6h)
+3.Working with SqlBulkcopy and triggers(6h)
+  - use of firetrigger(3h)	
+  - Calling trigger on each row insert(4h)	
+4.sqlbulkcopy vs bulk insert( detailed comparison) - (9h)
+ - Speed comparison with SqlBulkCopy and normal bulk insert in detail(5h)
 
-SqlBulkCopy : Unexpected existing transaction with SqlBulkCopy
-Problem : I have created a new SqlConnection and begins a SqlTransaction. After passing the SqlTransaction object to SQlCopy object and starting the execution, the following error is thrown:   
- 
-Error : Unexpected existing transaction with SqlBulkCopy
 
-Example:
 
-using (SqlConnection sqlConnection = new SqlConnection(Config.GetConnectionString(destinationServiceName)))
-{
-	sqlConnection.Open();
-	
-	using (SqlTransaction transaction = sqlConnection.BeginTransaction(IsolationLevel.Snapshot, "Transport"))
-	{						
-				int rowsDeleted = new SqlCommand("delete from " + destinationTablename, sqlConnection, transaction).ExecuteNonQuery();
-				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(sqlConnection))
-				{
-					bulkCopy.DestinationTableName = destinationTablename;
-					bulkCopy.NotifyAfter = 1000;
-					bulkCopy.WriteToServer(sourceData);
-					bulkCopy.Close();
-				}	
-		}		
-	}
-	sqlConnection.Close();
-}
 
-Solution :
-  
-Cause
-    transaction object does not get transferred via the SqlConnection object to SqlBulkCopy.
-Fix
-    You have to assign the transaction object explicitly to SqlBulkCopy object.
-    
-     using (SqlConnection sqlConnection = new SqlConnection(Config.GetConnectionString(destinationServiceName)))
-{
-	sqlConnection.Open();
-	
-	using (SqlTransaction transaction = sqlConnection.BeginTransaction(IsolationLevel.Snapshot, "Transport"))
-	{						
-				int rowsDeleted = new SqlCommand("delete from " + destinationTablename, sqlConnection, transaction).ExecuteNonQuery();
-        
-				using (SqlBulkCopy bulkCopy = new SqlBulkCopy(sqlConnection,SqlBulkCopyOptions.Default, transaction))
-				{
-					bulkCopy.DestinationTableName = destinationTablename;
-					bulkCopy.NotifyAfter = 1000;
-					bulkCopy.WriteToServer(sourceData);
-					bulkCopy.Close();
-				}	
-		}		
-	}
-	sqlConnection.Close();
-}
-
-----------------------------------------------------------------------------------------------------------------------------------------
 
