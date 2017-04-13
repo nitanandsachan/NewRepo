@@ -1,1 +1,535 @@
 
+-----------DeferredExecution
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Query_Execution
+{
+    public partial class DeferredExecution : Form
+    {
+        public DeferredExecution()
+        {
+            InitializeComponent();
+        }
+
+        private void uiDeferredExecution_LINQ_Click(object sender, EventArgs e)
+        {
+            int[] numbers = new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            int i = 0;
+            var q =from n in numbers    select ++i;
+
+            // Note, the local variable 'i' is not incremented 
+            // until each element is evaluated (as a side-effect): 
+            foreach (var v in q)
+            {
+                Console.WriteLine("v = {0}, i = {1}", v, i);
+            }
+        }
+
+        private void uiDeferredExecution_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiDeferredExecution_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+      
+    }
+}
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Query_Execution
+{
+    partial class DeferredExecution
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiDeferredExecution_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiDeferredExecution_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiDeferredExecution_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiDeferredExecution_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiDeferredExecution_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiDeferredExecution_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(120, 135);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Deferred Execution";
+            // 
+            // uiDeferredExecution_LINQ_Execute
+            // 
+            this.uiDeferredExecution_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiDeferredExecution_LINQ_Execute.Name = "uiDeferredExecution_LINQ_Execute";
+            this.uiDeferredExecution_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiDeferredExecution_LINQ_Execute.TabIndex = 2;
+            this.uiDeferredExecution_LINQ_Execute.Text = "Execute";
+            this.uiDeferredExecution_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiDeferredExecution_LINQ_Execute.Click += new System.EventHandler(this.uiDeferredExecution_LINQ_Execute_Click);
+            // 
+            // uiDeferredExecution_LINQ_Dynamic
+            // 
+            this.uiDeferredExecution_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiDeferredExecution_LINQ_Dynamic.Name = "uiDeferredExecution_LINQ_Dynamic";
+            this.uiDeferredExecution_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiDeferredExecution_LINQ_Dynamic.TabIndex = 1;
+            this.uiDeferredExecution_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiDeferredExecution_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiDeferredExecution_LINQ_Dynamic.Click += new System.EventHandler(this.uiDeferredExecution_LINQ_Dynamic_Click);
+            // 
+            // uiDeferredExecution_LINQ
+            // 
+            this.uiDeferredExecution_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiDeferredExecution_LINQ.Name = "uiDeferredExecution_LINQ";
+            this.uiDeferredExecution_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiDeferredExecution_LINQ.TabIndex = 0;
+            this.uiDeferredExecution_LINQ.Text = "LINQ";
+            this.uiDeferredExecution_LINQ.UseVisualStyleBackColor = true;
+            this.uiDeferredExecution_LINQ.Click += new System.EventHandler(this.uiDeferredExecution_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // DeferredExecution
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "DeferredExecution";
+            this.Text = "Deferred Execution";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiDeferredExecution_LINQ_Execute;
+        private System.Windows.Forms.Button uiDeferredExecution_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiDeferredExecution_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+    }
+}
+
+-----------ImmediateExecution
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Query_Execution
+{
+    public partial class ImmediateExecution : Form
+    {
+        public ImmediateExecution()
+        {
+            InitializeComponent();
+        }
+
+        private void uiImmediateExecution_LINQ_Click(object sender, EventArgs e)
+        {
+            int[] numbers = new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+
+            int i = 0;
+            var q = (from n in numbers select ++i).ToList();
+
+            // The local variable i has already been fully 
+            // incremented before we iterate the results: 
+            foreach (var v in q)
+            {
+                Console.WriteLine("v = {0}, i = {1}", v, i);
+            }
+        }
+
+        private void uiImmediateExecution_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiImmediateExecution_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
+}
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Query_Execution
+{
+    partial class ImmediateExecution
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiImmediateExecution_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiImmediateExecution_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiImmediateExecution_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiImmediateExecution_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiImmediateExecution_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiImmediateExecution_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(120, 135);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Immediate Execution";
+            // 
+            // uiImmediateExecution_LINQ_Execute
+            // 
+            this.uiImmediateExecution_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiImmediateExecution_LINQ_Execute.Name = "uiImmediateExecution_LINQ_Execute";
+            this.uiImmediateExecution_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiImmediateExecution_LINQ_Execute.TabIndex = 2;
+            this.uiImmediateExecution_LINQ_Execute.Text = "Execute";
+            this.uiImmediateExecution_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiImmediateExecution_LINQ_Execute.Click += new System.EventHandler(this.uiImmediateExecution_LINQ_Execute_Click);
+            // 
+            // uiImmediateExecution_LINQ_Dynamic
+            // 
+            this.uiImmediateExecution_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiImmediateExecution_LINQ_Dynamic.Name = "uiImmediateExecution_LINQ_Dynamic";
+            this.uiImmediateExecution_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiImmediateExecution_LINQ_Dynamic.TabIndex = 1;
+            this.uiImmediateExecution_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiImmediateExecution_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiImmediateExecution_LINQ_Dynamic.Click += new System.EventHandler(this.uiImmediateExecution_LINQ_Dynamic_Click);
+            // 
+            // uiImmediateExecution_LINQ
+            // 
+            this.uiImmediateExecution_LINQ.Location = new System.Drawing.Point(10, 19);
+            this.uiImmediateExecution_LINQ.Name = "uiImmediateExecution_LINQ";
+            this.uiImmediateExecution_LINQ.Size = new System.Drawing.Size(100, 24);
+            this.uiImmediateExecution_LINQ.TabIndex = 0;
+            this.uiImmediateExecution_LINQ.Text = "LINQ";
+            this.uiImmediateExecution_LINQ.UseVisualStyleBackColor = true;
+            this.uiImmediateExecution_LINQ.Click += new System.EventHandler(this.uiImmediateExecution_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // ImmediateExecution
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "ImmediateExecution";
+            this.Text = "Immediate Execution";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiImmediateExecution_LINQ_Execute;
+        private System.Windows.Forms.Button uiImmediateExecution_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiImmediateExecution_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+    }
+}
+-------------------------------------------------QueryReuse
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Query_Execution
+{
+    public partial class QueryReuse : Form
+    {
+        public QueryReuse()
+        {
+            InitializeComponent();
+        }
+
+        private void uiQueryReuse_LINQ_Click(object sender, EventArgs e)
+        {
+            int[] numbers = new int[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var lowNumbers =  from n in numbers   where n <= 3     select n;
+
+            Console.WriteLine("First run numbers <= 3:");
+            foreach (int n in lowNumbers)
+            {
+                Console.WriteLine(n);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                numbers[i] = -numbers[i];
+            }
+
+            // During this second run, the same query object, 
+            // lowNumbers, will be iterating over the new state 
+            // of numbers[], producing different results: 
+            Console.WriteLine("Second run numbers <= 3:");
+            foreach (int n in lowNumbers)
+            {
+                Console.WriteLine(n);
+            }
+        }
+
+        private void uiQueryReuse_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiQueryReuse_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+    }
+}
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Query_Execution
+{
+    partial class QueryReuse
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiQueryReuse_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiQueryReuse_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiQueryReuse_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiQueryReuse_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiQueryReuse_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiQueryReuse_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(120, 135);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Query Reuse";
+            // 
+            // uiQueryReuse_LINQ_Execute
+            // 
+            this.uiQueryReuse_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiQueryReuse_LINQ_Execute.Name = "uiQueryReuse_LINQ_Execute";
+            this.uiQueryReuse_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiQueryReuse_LINQ_Execute.TabIndex = 2;
+            this.uiQueryReuse_LINQ_Execute.Text = "Execute";
+            this.uiQueryReuse_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiQueryReuse_LINQ_Execute.Click += new System.EventHandler(this.uiQueryReuse_LINQ_Execute_Click);
+            // 
+            // uiQueryReuse_LINQ_Dynamic
+            // 
+            this.uiQueryReuse_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiQueryReuse_LINQ_Dynamic.Name = "uiQueryReuse_LINQ_Dynamic";
+            this.uiQueryReuse_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiQueryReuse_LINQ_Dynamic.TabIndex = 1;
+            this.uiQueryReuse_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiQueryReuse_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiQueryReuse_LINQ_Dynamic.Click += new System.EventHandler(this.uiQueryReuse_LINQ_Dynamic_Click);
+            // 
+            // uiQueryReuse_LINQ
+            // 
+            this.uiQueryReuse_LINQ.Location = new System.Drawing.Point(10, 19);
+            this.uiQueryReuse_LINQ.Name = "uiQueryReuse_LINQ";
+            this.uiQueryReuse_LINQ.Size = new System.Drawing.Size(100, 24);
+            this.uiQueryReuse_LINQ.TabIndex = 0;
+            this.uiQueryReuse_LINQ.Text = "LINQ";
+            this.uiQueryReuse_LINQ.UseVisualStyleBackColor = true;
+            this.uiQueryReuse_LINQ.Click += new System.EventHandler(this.uiQueryReuse_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // QueryReuse
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "QueryReuse";
+            this.Text = "Query Reuse";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiQueryReuse_LINQ_Execute;
+        private System.Windows.Forms.Button uiQueryReuse_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiQueryReuse_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+    }
+}
