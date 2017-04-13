@@ -1,1 +1,2195 @@
 
+---------------------Aggregate--
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    public partial class Aggregate : Form
+    {
+        public Aggregate()
+        {
+            InitializeComponent();
+        }
+        private void uiAggregate_Simple_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAggregate_Simple_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAggregate_Simple_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAggregate_Seed_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAggregate_Seed_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAggregate_Seed_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAggregate_Grouped_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAggregate_Grouped_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAggregate_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void uiAggregate_Elements_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAggregate_Elements_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAggregate_Elements_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    partial class Aggregate
+    {
+        /// <Aggregatemary>
+        /// Required designer variable.
+        /// </Aggregatemary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <Aggregatemary>
+        /// Clean up any resources being used.
+        /// </Aggregatemary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <Aggregatemary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </Aggregatemary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiAggregate_Simple_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiAggregate_Simple_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiAggregate_Simple_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiAggregate_Seed_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiAggregate_Seed_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiAggregate_Seed_LINQ = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiAggregate_Simple_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiAggregate_Simple_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiAggregate_Simple_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(19, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 135);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Aggregate - Simple";
+            // 
+            // uiAggregate_Simple_LINQ_Execute
+            // 
+            this.uiAggregate_Simple_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiAggregate_Simple_LINQ_Execute.Name = "uiAggregate_Simple_LINQ_Execute";
+            this.uiAggregate_Simple_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiAggregate_Simple_LINQ_Execute.TabIndex = 2;
+            this.uiAggregate_Simple_LINQ_Execute.Text = "Execute";
+            this.uiAggregate_Simple_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiAggregate_Simple_LINQ_Execute.Click += new System.EventHandler(this.uiAggregate_Simple_LINQ_Execute_Click);
+            // 
+            // uiAggregate_Simple_LINQ_Dynamic
+            // 
+            this.uiAggregate_Simple_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiAggregate_Simple_LINQ_Dynamic.Name = "uiAggregate_Simple_LINQ_Dynamic";
+            this.uiAggregate_Simple_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiAggregate_Simple_LINQ_Dynamic.TabIndex = 1;
+            this.uiAggregate_Simple_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiAggregate_Simple_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiAggregate_Simple_LINQ_Dynamic.Click += new System.EventHandler(this.uiAggregate_Simple_LINQ_Dynamic_Click);
+            // 
+            // uiAggregate_Simple_LINQ
+            // 
+            this.uiAggregate_Simple_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiAggregate_Simple_LINQ.Name = "uiAggregate_Simple_LINQ";
+            this.uiAggregate_Simple_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiAggregate_Simple_LINQ.TabIndex = 0;
+            this.uiAggregate_Simple_LINQ.Text = "LINQ";
+            this.uiAggregate_Simple_LINQ.UseVisualStyleBackColor = true;
+            this.uiAggregate_Simple_LINQ.Click += new System.EventHandler(this.uiAggregate_Simple_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uiAggregate_Seed_LINQ_Execute);
+            this.groupBox3.Controls.Add(this.uiAggregate_Seed_LINQ_Dynamic);
+            this.groupBox3.Controls.Add(this.uiAggregate_Seed_LINQ);
+            this.groupBox3.Location = new System.Drawing.Point(211, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(175, 135);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Aggregate - Seed";
+            // 
+            // uiAggregate_Seed_LINQ_Execute
+            // 
+            this.uiAggregate_Seed_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiAggregate_Seed_LINQ_Execute.Name = "uiAggregate_Seed_LINQ_Execute";
+            this.uiAggregate_Seed_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiAggregate_Seed_LINQ_Execute.TabIndex = 2;
+            this.uiAggregate_Seed_LINQ_Execute.Text = "Execute";
+            this.uiAggregate_Seed_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiAggregate_Seed_LINQ_Execute.Click += new System.EventHandler(this.uiAggregate_Seed_LINQ_Execute_Click);
+            // 
+            // uiAggregate_Seed_LINQ_Dynamic
+            // 
+            this.uiAggregate_Seed_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiAggregate_Seed_LINQ_Dynamic.Name = "uiAggregate_Seed_LINQ_Dynamic";
+            this.uiAggregate_Seed_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiAggregate_Seed_LINQ_Dynamic.TabIndex = 1;
+            this.uiAggregate_Seed_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiAggregate_Seed_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiAggregate_Seed_LINQ_Dynamic.Click += new System.EventHandler(this.uiAggregate_Seed_LINQ_Dynamic_Click);
+            // 
+            // uiAggregate_Seed_LINQ
+            // 
+            this.uiAggregate_Seed_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiAggregate_Seed_LINQ.Name = "uiAggregate_Seed_LINQ";
+            this.uiAggregate_Seed_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiAggregate_Seed_LINQ.TabIndex = 0;
+            this.uiAggregate_Seed_LINQ.Text = "LINQ";
+            this.uiAggregate_Seed_LINQ.UseVisualStyleBackColor = true;
+            this.uiAggregate_Seed_LINQ.Click += new System.EventHandler(this.uiAggregate_Seed_LINQ_Click);
+            // 
+            // Aggregate
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "Aggregate";
+            this.Text = "Aggregate";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiAggregate_Simple_LINQ_Execute;
+        private System.Windows.Forms.Button uiAggregate_Simple_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiAggregate_Simple_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button uiAggregate_Seed_LINQ_Execute;
+        private System.Windows.Forms.Button uiAggregate_Seed_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiAggregate_Seed_LINQ;
+    }
+}
+
+-----------------------------------------------------Average
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    public partial class Average : Form
+    {
+        public Average()
+        {
+            InitializeComponent();
+        }
+        private void uiAverage_Simple_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAverage_Simple_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAverage_Simple_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAverage_Projection_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAverage_Projection_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAverage_Projection_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAverage_Grouped_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAverage_Grouped_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAverage_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void uiAverage_Elements_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiAverage_Elements_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiAverage_Elements_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    partial class Average
+    {
+        /// <Averagemary>
+        /// Required designer variable.
+        /// </Averagemary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <Averagemary>
+        /// Clean up any resources being used.
+        /// </Averagemary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <Averagemary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </Averagemary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiAverage_Simple_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiAverage_Simple_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiAverage_Simple_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiAverage_Projection_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiAverage_Projection_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiAverage_Projection_LINQ = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.uiAverage_Grouped_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiAverage_Grouped_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiAverage_Grouped_LINQ = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiAverage_Simple_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiAverage_Simple_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiAverage_Simple_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(19, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 135);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Average - Simple";
+            // 
+            // uiAverage_Simple_LINQ_Execute
+            // 
+            this.uiAverage_Simple_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiAverage_Simple_LINQ_Execute.Name = "uiAverage_Simple_LINQ_Execute";
+            this.uiAverage_Simple_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Simple_LINQ_Execute.TabIndex = 2;
+            this.uiAverage_Simple_LINQ_Execute.Text = "Execute";
+            this.uiAverage_Simple_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiAverage_Simple_LINQ_Execute.Click += new System.EventHandler(this.uiAverage_Simple_LINQ_Execute_Click);
+            // 
+            // uiAverage_Simple_LINQ_Dynamic
+            // 
+            this.uiAverage_Simple_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiAverage_Simple_LINQ_Dynamic.Name = "uiAverage_Simple_LINQ_Dynamic";
+            this.uiAverage_Simple_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Simple_LINQ_Dynamic.TabIndex = 1;
+            this.uiAverage_Simple_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiAverage_Simple_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiAverage_Simple_LINQ_Dynamic.Click += new System.EventHandler(this.uiAverage_Simple_LINQ_Dynamic_Click);
+            // 
+            // uiAverage_Simple_LINQ
+            // 
+            this.uiAverage_Simple_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiAverage_Simple_LINQ.Name = "uiAverage_Simple_LINQ";
+            this.uiAverage_Simple_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Simple_LINQ.TabIndex = 0;
+            this.uiAverage_Simple_LINQ.Text = "LINQ";
+            this.uiAverage_Simple_LINQ.UseVisualStyleBackColor = true;
+            this.uiAverage_Simple_LINQ.Click += new System.EventHandler(this.uiAverage_Simple_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uiAverage_Projection_LINQ_Execute);
+            this.groupBox3.Controls.Add(this.uiAverage_Projection_LINQ_Dynamic);
+            this.groupBox3.Controls.Add(this.uiAverage_Projection_LINQ);
+            this.groupBox3.Location = new System.Drawing.Point(211, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(175, 135);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Average - Projection";
+            // 
+            // uiAverage_Projection_LINQ_Execute
+            // 
+            this.uiAverage_Projection_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiAverage_Projection_LINQ_Execute.Name = "uiAverage_Projection_LINQ_Execute";
+            this.uiAverage_Projection_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Projection_LINQ_Execute.TabIndex = 2;
+            this.uiAverage_Projection_LINQ_Execute.Text = "Execute";
+            this.uiAverage_Projection_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiAverage_Projection_LINQ_Execute.Click += new System.EventHandler(this.uiAverage_Projection_LINQ_Execute_Click);
+            // 
+            // uiAverage_Projection_LINQ_Dynamic
+            // 
+            this.uiAverage_Projection_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiAverage_Projection_LINQ_Dynamic.Name = "uiAverage_Projection_LINQ_Dynamic";
+            this.uiAverage_Projection_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Projection_LINQ_Dynamic.TabIndex = 1;
+            this.uiAverage_Projection_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiAverage_Projection_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiAverage_Projection_LINQ_Dynamic.Click += new System.EventHandler(this.uiAverage_Projection_LINQ_Dynamic_Click);
+            // 
+            // uiAverage_Projection_LINQ
+            // 
+            this.uiAverage_Projection_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiAverage_Projection_LINQ.Name = "uiAverage_Projection_LINQ";
+            this.uiAverage_Projection_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Projection_LINQ.TabIndex = 0;
+            this.uiAverage_Projection_LINQ.Text = "LINQ";
+            this.uiAverage_Projection_LINQ.UseVisualStyleBackColor = true;
+            this.uiAverage_Projection_LINQ.Click += new System.EventHandler(this.uiAverage_Projection_LINQ_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.uiAverage_Grouped_LINQ_Execute);
+            this.groupBox4.Controls.Add(this.uiAverage_Grouped_LINQ_Dynamic);
+            this.groupBox4.Controls.Add(this.uiAverage_Grouped_LINQ);
+            this.groupBox4.Location = new System.Drawing.Point(403, 28);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(175, 135);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Average - Grouped";
+            // 
+            // uiAverage_Grouped_LINQ_Execute
+            // 
+            this.uiAverage_Grouped_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiAverage_Grouped_LINQ_Execute.Name = "uiAverage_Grouped_LINQ_Execute";
+            this.uiAverage_Grouped_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Grouped_LINQ_Execute.TabIndex = 2;
+            this.uiAverage_Grouped_LINQ_Execute.Text = "Execute";
+            this.uiAverage_Grouped_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiAverage_Grouped_LINQ_Execute.Click += new System.EventHandler(this.uiAverage_Grouped_LINQ_Execute_Click);
+            // 
+            // uiAverage_Grouped_LINQ_Dynamic
+            // 
+            this.uiAverage_Grouped_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiAverage_Grouped_LINQ_Dynamic.Name = "uiAverage_Grouped_LINQ_Dynamic";
+            this.uiAverage_Grouped_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Grouped_LINQ_Dynamic.TabIndex = 1;
+            this.uiAverage_Grouped_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiAverage_Grouped_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiAverage_Grouped_LINQ_Dynamic.Click += new System.EventHandler(this.uiAverage_Grouped_LINQ_Dynamic_Click);
+            // 
+            // uiAverage_Grouped_LINQ
+            // 
+            this.uiAverage_Grouped_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiAverage_Grouped_LINQ.Name = "uiAverage_Grouped_LINQ";
+            this.uiAverage_Grouped_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiAverage_Grouped_LINQ.TabIndex = 0;
+            this.uiAverage_Grouped_LINQ.Text = "LINQ";
+            this.uiAverage_Grouped_LINQ.UseVisualStyleBackColor = true;
+            this.uiAverage_Grouped_LINQ.Click += new System.EventHandler(this.uiAverage_Grouped_LINQ_Click);
+            // 
+            // Average
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "Average";
+            this.Text = "Average";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiAverage_Simple_LINQ_Execute;
+        private System.Windows.Forms.Button uiAverage_Simple_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiAverage_Simple_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button uiAverage_Projection_LINQ_Execute;
+        private System.Windows.Forms.Button uiAverage_Projection_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiAverage_Projection_LINQ;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button uiAverage_Grouped_LINQ_Execute;
+        private System.Windows.Forms.Button uiAverage_Grouped_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiAverage_Grouped_LINQ;
+    }
+}
+
+----------------------------------------------------------Count-----------------
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    public partial class Count : Form
+    {
+        public Count()
+        {
+            InitializeComponent();
+        }
+        private void uiCount_Simple_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiCount_Simple_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCount_Simple_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCount_Conditional_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiCount_Conditional_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCount_Conditional_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCount_Grouped_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiCount_Grouped_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCount_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void uiCount_Nested_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiCount_Nested_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiCount_Nested_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    partial class Count
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiCount_Simple_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiCount_Simple_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiCount_Simple_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiCount_Conditional_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiCount_Conditional_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiCount_Conditional_LINQ = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.uiCount_Grouped_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiCount_Grouped_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiCount_Grouped_LINQ = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.uiCount_Nested_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiCount_Nested_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiCount_Nested_LINQ = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiCount_Simple_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiCount_Simple_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiCount_Simple_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(19, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 135);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Count - Simple";
+            // 
+            // uiCount_Simple_LINQ_Execute
+            // 
+            this.uiCount_Simple_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiCount_Simple_LINQ_Execute.Name = "uiCount_Simple_LINQ_Execute";
+            this.uiCount_Simple_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Simple_LINQ_Execute.TabIndex = 2;
+            this.uiCount_Simple_LINQ_Execute.Text = "Execute";
+            this.uiCount_Simple_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiCount_Simple_LINQ_Execute.Click += new System.EventHandler(this.uiCount_Simple_LINQ_Execute_Click);
+            // 
+            // uiCount_Simple_LINQ_Dynamic
+            // 
+            this.uiCount_Simple_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiCount_Simple_LINQ_Dynamic.Name = "uiCount_Simple_LINQ_Dynamic";
+            this.uiCount_Simple_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Simple_LINQ_Dynamic.TabIndex = 1;
+            this.uiCount_Simple_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiCount_Simple_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiCount_Simple_LINQ_Dynamic.Click += new System.EventHandler(this.uiCount_Simple_LINQ_Dynamic_Click);
+            // 
+            // uiCount_Simple_LINQ
+            // 
+            this.uiCount_Simple_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiCount_Simple_LINQ.Name = "uiCount_Simple_LINQ";
+            this.uiCount_Simple_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Simple_LINQ.TabIndex = 0;
+            this.uiCount_Simple_LINQ.Text = "LINQ";
+            this.uiCount_Simple_LINQ.UseVisualStyleBackColor = true;
+            this.uiCount_Simple_LINQ.Click += new System.EventHandler(this.uiCount_Simple_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uiCount_Conditional_LINQ_Execute);
+            this.groupBox3.Controls.Add(this.uiCount_Conditional_LINQ_Dynamic);
+            this.groupBox3.Controls.Add(this.uiCount_Conditional_LINQ);
+            this.groupBox3.Location = new System.Drawing.Point(211, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(175, 135);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Count - Conditional";
+            // 
+            // uiCount_Conditional_LINQ_Execute
+            // 
+            this.uiCount_Conditional_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiCount_Conditional_LINQ_Execute.Name = "uiCount_Conditional_LINQ_Execute";
+            this.uiCount_Conditional_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Conditional_LINQ_Execute.TabIndex = 2;
+            this.uiCount_Conditional_LINQ_Execute.Text = "Execute";
+            this.uiCount_Conditional_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiCount_Conditional_LINQ_Execute.Click += new System.EventHandler(this.uiCount_Conditional_LINQ_Execute_Click);
+            // 
+            // uiCount_Conditional_LINQ_Dynamic
+            // 
+            this.uiCount_Conditional_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiCount_Conditional_LINQ_Dynamic.Name = "uiCount_Conditional_LINQ_Dynamic";
+            this.uiCount_Conditional_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Conditional_LINQ_Dynamic.TabIndex = 1;
+            this.uiCount_Conditional_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiCount_Conditional_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiCount_Conditional_LINQ_Dynamic.Click += new System.EventHandler(this.uiCount_Conditional_LINQ_Dynamic_Click);
+            // 
+            // uiCount_Conditional_LINQ
+            // 
+            this.uiCount_Conditional_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiCount_Conditional_LINQ.Name = "uiCount_Conditional_LINQ";
+            this.uiCount_Conditional_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Conditional_LINQ.TabIndex = 0;
+            this.uiCount_Conditional_LINQ.Text = "LINQ";
+            this.uiCount_Conditional_LINQ.UseVisualStyleBackColor = true;
+            this.uiCount_Conditional_LINQ.Click += new System.EventHandler(this.uiCount_Conditional_LINQ_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.uiCount_Grouped_LINQ_Execute);
+            this.groupBox4.Controls.Add(this.uiCount_Grouped_LINQ_Dynamic);
+            this.groupBox4.Controls.Add(this.uiCount_Grouped_LINQ);
+            this.groupBox4.Location = new System.Drawing.Point(403, 28);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(175, 135);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Count - Grouped";
+            // 
+            // uiCount_Grouped_LINQ_Execute
+            // 
+            this.uiCount_Grouped_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiCount_Grouped_LINQ_Execute.Name = "uiCount_Grouped_LINQ_Execute";
+            this.uiCount_Grouped_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Grouped_LINQ_Execute.TabIndex = 2;
+            this.uiCount_Grouped_LINQ_Execute.Text = "Execute";
+            this.uiCount_Grouped_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiCount_Grouped_LINQ_Execute.Click += new System.EventHandler(this.uiCount_Grouped_LINQ_Execute_Click);
+            // 
+            // uiCount_Grouped_LINQ_Dynamic
+            // 
+            this.uiCount_Grouped_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiCount_Grouped_LINQ_Dynamic.Name = "uiCount_Grouped_LINQ_Dynamic";
+            this.uiCount_Grouped_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Grouped_LINQ_Dynamic.TabIndex = 1;
+            this.uiCount_Grouped_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiCount_Grouped_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiCount_Grouped_LINQ_Dynamic.Click += new System.EventHandler(this.uiCount_Grouped_LINQ_Dynamic_Click);
+            // 
+            // uiCount_Grouped_LINQ
+            // 
+            this.uiCount_Grouped_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiCount_Grouped_LINQ.Name = "uiCount_Grouped_LINQ";
+            this.uiCount_Grouped_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Grouped_LINQ.TabIndex = 0;
+            this.uiCount_Grouped_LINQ.Text = "LINQ";
+            this.uiCount_Grouped_LINQ.UseVisualStyleBackColor = true;
+            this.uiCount_Grouped_LINQ.Click += new System.EventHandler(this.uiCount_Grouped_LINQ_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.uiCount_Nested_LINQ_Execute);
+            this.groupBox5.Controls.Add(this.uiCount_Nested_LINQ_Dynamic);
+            this.groupBox5.Controls.Add(this.uiCount_Nested_LINQ);
+            this.groupBox5.Location = new System.Drawing.Point(19, 169);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(175, 135);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Count - Nested";
+            // 
+            // uiCount_Nested_LINQ_Execute
+            // 
+            this.uiCount_Nested_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiCount_Nested_LINQ_Execute.Name = "uiCount_Nested_LINQ_Execute";
+            this.uiCount_Nested_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Nested_LINQ_Execute.TabIndex = 2;
+            this.uiCount_Nested_LINQ_Execute.Text = "Execute";
+            this.uiCount_Nested_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiCount_Nested_LINQ_Execute.Click += new System.EventHandler(this.uiCount_Nested_LINQ_Execute_Click);
+            // 
+            // uiCount_Nested_LINQ_Dynamic
+            // 
+            this.uiCount_Nested_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiCount_Nested_LINQ_Dynamic.Name = "uiCount_Nested_LINQ_Dynamic";
+            this.uiCount_Nested_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Nested_LINQ_Dynamic.TabIndex = 1;
+            this.uiCount_Nested_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiCount_Nested_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiCount_Nested_LINQ_Dynamic.Click += new System.EventHandler(this.uiCount_Nested_LINQ_Dynamic_Click);
+            // 
+            // uiCount_Nested_LINQ
+            // 
+            this.uiCount_Nested_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiCount_Nested_LINQ.Name = "uiCount_Nested_LINQ";
+            this.uiCount_Nested_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiCount_Nested_LINQ.TabIndex = 0;
+            this.uiCount_Nested_LINQ.Text = "LINQ";
+            this.uiCount_Nested_LINQ.UseVisualStyleBackColor = true;
+            this.uiCount_Nested_LINQ.Click += new System.EventHandler(this.uiCount_Nested_LINQ_Click);
+            // 
+            // Count
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "Count";
+            this.Text = "Count";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiCount_Simple_LINQ_Execute;
+        private System.Windows.Forms.Button uiCount_Simple_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiCount_Simple_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button uiCount_Conditional_LINQ_Execute;
+        private System.Windows.Forms.Button uiCount_Conditional_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiCount_Conditional_LINQ;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button uiCount_Grouped_LINQ_Execute;
+        private System.Windows.Forms.Button uiCount_Grouped_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiCount_Grouped_LINQ;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button uiCount_Nested_LINQ_Execute;
+        private System.Windows.Forms.Button uiCount_Nested_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiCount_Nested_LINQ;
+    }
+}
+-------------------------------------------------------------Max-------
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    public partial class Max : Form
+    {
+        public Max()
+        {
+            InitializeComponent();
+        }
+        private void uiMax_Simple_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMax_Simple_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMax_Simple_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMax_Projection_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMax_Projection_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMax_Projection_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMax_Grouped_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMax_Grouped_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMax_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void uiMax_Elements_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMax_Elements_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMax_Elements_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    partial class Max
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiMax_Simple_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMax_Simple_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMax_Simple_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiMax_Projection_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMax_Projection_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMax_Projection_LINQ = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.uiMax_Grouped_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMax_Grouped_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMax_Grouped_LINQ = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.uiMax_Elements_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMax_Elements_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMax_Elements_LINQ = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiMax_Simple_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiMax_Simple_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiMax_Simple_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(19, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 135);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Max - Simple";
+            // 
+            // uiMax_Simple_LINQ_Execute
+            // 
+            this.uiMax_Simple_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMax_Simple_LINQ_Execute.Name = "uiMax_Simple_LINQ_Execute";
+            this.uiMax_Simple_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Simple_LINQ_Execute.TabIndex = 2;
+            this.uiMax_Simple_LINQ_Execute.Text = "Execute";
+            this.uiMax_Simple_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMax_Simple_LINQ_Execute.Click += new System.EventHandler(this.uiMax_Simple_LINQ_Execute_Click);
+            // 
+            // uiMax_Simple_LINQ_Dynamic
+            // 
+            this.uiMax_Simple_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMax_Simple_LINQ_Dynamic.Name = "uiMax_Simple_LINQ_Dynamic";
+            this.uiMax_Simple_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Simple_LINQ_Dynamic.TabIndex = 1;
+            this.uiMax_Simple_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMax_Simple_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMax_Simple_LINQ_Dynamic.Click += new System.EventHandler(this.uiMax_Simple_LINQ_Dynamic_Click);
+            // 
+            // uiMax_Simple_LINQ
+            // 
+            this.uiMax_Simple_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMax_Simple_LINQ.Name = "uiMax_Simple_LINQ";
+            this.uiMax_Simple_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Simple_LINQ.TabIndex = 0;
+            this.uiMax_Simple_LINQ.Text = "LINQ";
+            this.uiMax_Simple_LINQ.UseVisualStyleBackColor = true;
+            this.uiMax_Simple_LINQ.Click += new System.EventHandler(this.uiMax_Simple_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uiMax_Projection_LINQ_Execute);
+            this.groupBox3.Controls.Add(this.uiMax_Projection_LINQ_Dynamic);
+            this.groupBox3.Controls.Add(this.uiMax_Projection_LINQ);
+            this.groupBox3.Location = new System.Drawing.Point(211, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(175, 135);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Max - Projection";
+            // 
+            // uiMax_Projection_LINQ_Execute
+            // 
+            this.uiMax_Projection_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMax_Projection_LINQ_Execute.Name = "uiMax_Projection_LINQ_Execute";
+            this.uiMax_Projection_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Projection_LINQ_Execute.TabIndex = 2;
+            this.uiMax_Projection_LINQ_Execute.Text = "Execute";
+            this.uiMax_Projection_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMax_Projection_LINQ_Execute.Click += new System.EventHandler(this.uiMax_Projection_LINQ_Execute_Click);
+            // 
+            // uiMax_Projection_LINQ_Dynamic
+            // 
+            this.uiMax_Projection_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMax_Projection_LINQ_Dynamic.Name = "uiMax_Projection_LINQ_Dynamic";
+            this.uiMax_Projection_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Projection_LINQ_Dynamic.TabIndex = 1;
+            this.uiMax_Projection_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMax_Projection_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMax_Projection_LINQ_Dynamic.Click += new System.EventHandler(this.uiMax_Projection_LINQ_Dynamic_Click);
+            // 
+            // uiMax_Projection_LINQ
+            // 
+            this.uiMax_Projection_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMax_Projection_LINQ.Name = "uiMax_Projection_LINQ";
+            this.uiMax_Projection_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Projection_LINQ.TabIndex = 0;
+            this.uiMax_Projection_LINQ.Text = "LINQ";
+            this.uiMax_Projection_LINQ.UseVisualStyleBackColor = true;
+            this.uiMax_Projection_LINQ.Click += new System.EventHandler(this.uiMax_Projection_LINQ_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.uiMax_Grouped_LINQ_Execute);
+            this.groupBox4.Controls.Add(this.uiMax_Grouped_LINQ_Dynamic);
+            this.groupBox4.Controls.Add(this.uiMax_Grouped_LINQ);
+            this.groupBox4.Location = new System.Drawing.Point(403, 28);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(175, 135);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Max - Grouped";
+            // 
+            // uiMax_Grouped_LINQ_Execute
+            // 
+            this.uiMax_Grouped_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMax_Grouped_LINQ_Execute.Name = "uiMax_Grouped_LINQ_Execute";
+            this.uiMax_Grouped_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Grouped_LINQ_Execute.TabIndex = 2;
+            this.uiMax_Grouped_LINQ_Execute.Text = "Execute";
+            this.uiMax_Grouped_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMax_Grouped_LINQ_Execute.Click += new System.EventHandler(this.uiMax_Grouped_LINQ_Execute_Click);
+            // 
+            // uiMax_Grouped_LINQ_Dynamic
+            // 
+            this.uiMax_Grouped_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMax_Grouped_LINQ_Dynamic.Name = "uiMax_Grouped_LINQ_Dynamic";
+            this.uiMax_Grouped_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Grouped_LINQ_Dynamic.TabIndex = 1;
+            this.uiMax_Grouped_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMax_Grouped_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMax_Grouped_LINQ_Dynamic.Click += new System.EventHandler(this.uiMax_Grouped_LINQ_Dynamic_Click);
+            // 
+            // uiMax_Grouped_LINQ
+            // 
+            this.uiMax_Grouped_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMax_Grouped_LINQ.Name = "uiMax_Grouped_LINQ";
+            this.uiMax_Grouped_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Grouped_LINQ.TabIndex = 0;
+            this.uiMax_Grouped_LINQ.Text = "LINQ";
+            this.uiMax_Grouped_LINQ.UseVisualStyleBackColor = true;
+            this.uiMax_Grouped_LINQ.Click += new System.EventHandler(this.uiMax_Grouped_LINQ_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.uiMax_Elements_LINQ_Execute);
+            this.groupBox5.Controls.Add(this.uiMax_Elements_LINQ_Dynamic);
+            this.groupBox5.Controls.Add(this.uiMax_Elements_LINQ);
+            this.groupBox5.Location = new System.Drawing.Point(19, 169);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(175, 135);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Max - Elements";
+            // 
+            // uiMax_Elements_LINQ_Execute
+            // 
+            this.uiMax_Elements_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMax_Elements_LINQ_Execute.Name = "uiMax_Elements_LINQ_Execute";
+            this.uiMax_Elements_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Elements_LINQ_Execute.TabIndex = 2;
+            this.uiMax_Elements_LINQ_Execute.Text = "Execute";
+            this.uiMax_Elements_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMax_Elements_LINQ_Execute.Click += new System.EventHandler(this.uiMax_Elements_LINQ_Execute_Click);
+            // 
+            // uiMax_Elements_LINQ_Dynamic
+            // 
+            this.uiMax_Elements_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMax_Elements_LINQ_Dynamic.Name = "uiMax_Elements_LINQ_Dynamic";
+            this.uiMax_Elements_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Elements_LINQ_Dynamic.TabIndex = 1;
+            this.uiMax_Elements_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMax_Elements_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMax_Elements_LINQ_Dynamic.Click += new System.EventHandler(this.uiMax_Elements_LINQ_Dynamic_Click);
+            // 
+            // uiMax_Elements_LINQ
+            // 
+            this.uiMax_Elements_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMax_Elements_LINQ.Name = "uiMax_Elements_LINQ";
+            this.uiMax_Elements_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMax_Elements_LINQ.TabIndex = 0;
+            this.uiMax_Elements_LINQ.Text = "LINQ";
+            this.uiMax_Elements_LINQ.UseVisualStyleBackColor = true;
+            this.uiMax_Elements_LINQ.Click += new System.EventHandler(this.uiMax_Elements_LINQ_Click);
+            // 
+            // Max
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "Max";
+            this.Text = "Max";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiMax_Simple_LINQ_Execute;
+        private System.Windows.Forms.Button uiMax_Simple_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMax_Simple_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button uiMax_Projection_LINQ_Execute;
+        private System.Windows.Forms.Button uiMax_Projection_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMax_Projection_LINQ;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button uiMax_Grouped_LINQ_Execute;
+        private System.Windows.Forms.Button uiMax_Grouped_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMax_Grouped_LINQ;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button uiMax_Elements_LINQ_Execute;
+        private System.Windows.Forms.Button uiMax_Elements_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMax_Elements_LINQ;
+    }
+}
+
+
+-----------------------------------------Min
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    public partial class Min : Form
+    {
+        public Min()
+        {
+            InitializeComponent();
+        }
+        private void uiMin_Simple_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMin_Simple_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMin_Simple_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMin_Projection_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMin_Projection_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMin_Projection_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMin_Grouped_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMin_Grouped_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMin_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void uiMin_Elements_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiMin_Elements_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiMin_Elements_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    partial class Min
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiMin_Simple_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMin_Simple_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMin_Simple_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiMin_Projection_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMin_Projection_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMin_Projection_LINQ = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.uiMin_Grouped_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMin_Grouped_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMin_Grouped_LINQ = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.uiMin_Elements_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiMin_Elements_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiMin_Elements_LINQ = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiMin_Simple_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiMin_Simple_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiMin_Simple_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(19, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 135);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Min - Simple";
+            // 
+            // uiMin_Simple_LINQ_Execute
+            // 
+            this.uiMin_Simple_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMin_Simple_LINQ_Execute.Name = "uiMin_Simple_LINQ_Execute";
+            this.uiMin_Simple_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Simple_LINQ_Execute.TabIndex = 2;
+            this.uiMin_Simple_LINQ_Execute.Text = "Execute";
+            this.uiMin_Simple_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMin_Simple_LINQ_Execute.Click += new System.EventHandler(this.uiMin_Simple_LINQ_Execute_Click);
+            // 
+            // uiMin_Simple_LINQ_Dynamic
+            // 
+            this.uiMin_Simple_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMin_Simple_LINQ_Dynamic.Name = "uiMin_Simple_LINQ_Dynamic";
+            this.uiMin_Simple_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Simple_LINQ_Dynamic.TabIndex = 1;
+            this.uiMin_Simple_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMin_Simple_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMin_Simple_LINQ_Dynamic.Click += new System.EventHandler(this.uiMin_Simple_LINQ_Dynamic_Click);
+            // 
+            // uiMin_Simple_LINQ
+            // 
+            this.uiMin_Simple_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMin_Simple_LINQ.Name = "uiMin_Simple_LINQ";
+            this.uiMin_Simple_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Simple_LINQ.TabIndex = 0;
+            this.uiMin_Simple_LINQ.Text = "LINQ";
+            this.uiMin_Simple_LINQ.UseVisualStyleBackColor = true;
+            this.uiMin_Simple_LINQ.Click += new System.EventHandler(this.uiMin_Simple_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uiMin_Projection_LINQ_Execute);
+            this.groupBox3.Controls.Add(this.uiMin_Projection_LINQ_Dynamic);
+            this.groupBox3.Controls.Add(this.uiMin_Projection_LINQ);
+            this.groupBox3.Location = new System.Drawing.Point(211, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(175, 135);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Min - Projection";
+            // 
+            // uiMin_Projection_LINQ_Execute
+            // 
+            this.uiMin_Projection_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMin_Projection_LINQ_Execute.Name = "uiMin_Projection_LINQ_Execute";
+            this.uiMin_Projection_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Projection_LINQ_Execute.TabIndex = 2;
+            this.uiMin_Projection_LINQ_Execute.Text = "Execute";
+            this.uiMin_Projection_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMin_Projection_LINQ_Execute.Click += new System.EventHandler(this.uiMin_Projection_LINQ_Execute_Click);
+            // 
+            // uiMin_Projection_LINQ_Dynamic
+            // 
+            this.uiMin_Projection_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMin_Projection_LINQ_Dynamic.Name = "uiMin_Projection_LINQ_Dynamic";
+            this.uiMin_Projection_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Projection_LINQ_Dynamic.TabIndex = 1;
+            this.uiMin_Projection_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMin_Projection_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMin_Projection_LINQ_Dynamic.Click += new System.EventHandler(this.uiMin_Projection_LINQ_Dynamic_Click);
+            // 
+            // uiMin_Projection_LINQ
+            // 
+            this.uiMin_Projection_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMin_Projection_LINQ.Name = "uiMin_Projection_LINQ";
+            this.uiMin_Projection_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Projection_LINQ.TabIndex = 0;
+            this.uiMin_Projection_LINQ.Text = "LINQ";
+            this.uiMin_Projection_LINQ.UseVisualStyleBackColor = true;
+            this.uiMin_Projection_LINQ.Click += new System.EventHandler(this.uiMin_Projection_LINQ_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.uiMin_Grouped_LINQ_Execute);
+            this.groupBox4.Controls.Add(this.uiMin_Grouped_LINQ_Dynamic);
+            this.groupBox4.Controls.Add(this.uiMin_Grouped_LINQ);
+            this.groupBox4.Location = new System.Drawing.Point(403, 28);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(175, 135);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Min - Grouped";
+            // 
+            // uiMin_Grouped_LINQ_Execute
+            // 
+            this.uiMin_Grouped_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMin_Grouped_LINQ_Execute.Name = "uiMin_Grouped_LINQ_Execute";
+            this.uiMin_Grouped_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Grouped_LINQ_Execute.TabIndex = 2;
+            this.uiMin_Grouped_LINQ_Execute.Text = "Execute";
+            this.uiMin_Grouped_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMin_Grouped_LINQ_Execute.Click += new System.EventHandler(this.uiMin_Grouped_LINQ_Execute_Click);
+            // 
+            // uiMin_Grouped_LINQ_Dynamic
+            // 
+            this.uiMin_Grouped_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMin_Grouped_LINQ_Dynamic.Name = "uiMin_Grouped_LINQ_Dynamic";
+            this.uiMin_Grouped_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Grouped_LINQ_Dynamic.TabIndex = 1;
+            this.uiMin_Grouped_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMin_Grouped_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMin_Grouped_LINQ_Dynamic.Click += new System.EventHandler(this.uiMin_Grouped_LINQ_Dynamic_Click);
+            // 
+            // uiMin_Grouped_LINQ
+            // 
+            this.uiMin_Grouped_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMin_Grouped_LINQ.Name = "uiMin_Grouped_LINQ";
+            this.uiMin_Grouped_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Grouped_LINQ.TabIndex = 0;
+            this.uiMin_Grouped_LINQ.Text = "LINQ";
+            this.uiMin_Grouped_LINQ.UseVisualStyleBackColor = true;
+            this.uiMin_Grouped_LINQ.Click += new System.EventHandler(this.uiMin_Grouped_LINQ_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.uiMin_Elements_LINQ_Execute);
+            this.groupBox5.Controls.Add(this.uiMin_Elements_LINQ_Dynamic);
+            this.groupBox5.Controls.Add(this.uiMin_Elements_LINQ);
+            this.groupBox5.Location = new System.Drawing.Point(19, 169);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(175, 135);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Min - Elements";
+            // 
+            // uiMin_Elements_LINQ_Execute
+            // 
+            this.uiMin_Elements_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiMin_Elements_LINQ_Execute.Name = "uiMin_Elements_LINQ_Execute";
+            this.uiMin_Elements_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Elements_LINQ_Execute.TabIndex = 2;
+            this.uiMin_Elements_LINQ_Execute.Text = "Execute";
+            this.uiMin_Elements_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiMin_Elements_LINQ_Execute.Click += new System.EventHandler(this.uiMin_Elements_LINQ_Execute_Click);
+            // 
+            // uiMin_Elements_LINQ_Dynamic
+            // 
+            this.uiMin_Elements_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiMin_Elements_LINQ_Dynamic.Name = "uiMin_Elements_LINQ_Dynamic";
+            this.uiMin_Elements_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Elements_LINQ_Dynamic.TabIndex = 1;
+            this.uiMin_Elements_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiMin_Elements_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiMin_Elements_LINQ_Dynamic.Click += new System.EventHandler(this.uiMin_Elements_LINQ_Dynamic_Click);
+            // 
+            // uiMin_Elements_LINQ
+            // 
+            this.uiMin_Elements_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiMin_Elements_LINQ.Name = "uiMin_Elements_LINQ";
+            this.uiMin_Elements_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiMin_Elements_LINQ.TabIndex = 0;
+            this.uiMin_Elements_LINQ.Text = "LINQ";
+            this.uiMin_Elements_LINQ.UseVisualStyleBackColor = true;
+            this.uiMin_Elements_LINQ.Click += new System.EventHandler(this.uiMin_Elements_LINQ_Click);
+            // 
+            // Min
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "Min";
+            this.Text = "Min";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiMin_Simple_LINQ_Execute;
+        private System.Windows.Forms.Button uiMin_Simple_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMin_Simple_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button uiMin_Projection_LINQ_Execute;
+        private System.Windows.Forms.Button uiMin_Projection_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMin_Projection_LINQ;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button uiMin_Grouped_LINQ_Execute;
+        private System.Windows.Forms.Button uiMin_Grouped_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMin_Grouped_LINQ;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button uiMin_Elements_LINQ_Execute;
+        private System.Windows.Forms.Button uiMin_Elements_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiMin_Elements_LINQ;
+    }
+}
+
+
+
+
+-------------------------------------------Sum
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    public partial class Sum : Form
+    {
+        public Sum()
+        {
+            InitializeComponent();
+        }
+        private void uiSum_Simple_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiSum_Simple_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiSum_Simple_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiSum_Projection_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiSum_Projection_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiSum_Projection_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiSum_Grouped_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiSum_Grouped_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiSum_Grouped_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void uiSum_Elements_LINQ_Click(object sender, EventArgs e)
+        {
+            string[] categories = new string[] { "Beverages", "Condiments", "Vegetables", "Dairy Products", "Seafood" };
+            var products = My.GetProductList();
+
+            var q = from c in categories join p in products on c equals p.Category select new { Category = c, p.ProductName };
+
+            foreach (var v in q)
+            {
+                Console.WriteLine(v.ProductName + ": " + v.Category);
+            }
+        }
+
+        private void uiSum_Elements_LINQ_Dynamic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uiSum_Elements_LINQ_Execute_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+namespace Examples.Expressions.Eval.LINQ_Dynamic.Aggregate_Operators
+{
+    partial class Sum
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiSum_Simple_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiSum_Simple_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiSum_Simple_LINQ = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uiResult = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uiSum_Projection_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiSum_Projection_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiSum_Projection_LINQ = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.uiSum_Grouped_LINQ_Execute = new System.Windows.Forms.Button();
+            this.uiSum_Grouped_LINQ_Dynamic = new System.Windows.Forms.Button();
+            this.uiSum_Grouped_LINQ = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiSum_Simple_LINQ_Execute);
+            this.groupBox1.Controls.Add(this.uiSum_Simple_LINQ_Dynamic);
+            this.groupBox1.Controls.Add(this.uiSum_Simple_LINQ);
+            this.groupBox1.Location = new System.Drawing.Point(19, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(175, 135);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sum - Simple";
+            // 
+            // uiSum_Simple_LINQ_Execute
+            // 
+            this.uiSum_Simple_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiSum_Simple_LINQ_Execute.Name = "uiSum_Simple_LINQ_Execute";
+            this.uiSum_Simple_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Simple_LINQ_Execute.TabIndex = 2;
+            this.uiSum_Simple_LINQ_Execute.Text = "Execute";
+            this.uiSum_Simple_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiSum_Simple_LINQ_Execute.Click += new System.EventHandler(this.uiSum_Simple_LINQ_Execute_Click);
+            // 
+            // uiSum_Simple_LINQ_Dynamic
+            // 
+            this.uiSum_Simple_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiSum_Simple_LINQ_Dynamic.Name = "uiSum_Simple_LINQ_Dynamic";
+            this.uiSum_Simple_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Simple_LINQ_Dynamic.TabIndex = 1;
+            this.uiSum_Simple_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiSum_Simple_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiSum_Simple_LINQ_Dynamic.Click += new System.EventHandler(this.uiSum_Simple_LINQ_Dynamic_Click);
+            // 
+            // uiSum_Simple_LINQ
+            // 
+            this.uiSum_Simple_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiSum_Simple_LINQ.Name = "uiSum_Simple_LINQ";
+            this.uiSum_Simple_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Simple_LINQ.TabIndex = 0;
+            this.uiSum_Simple_LINQ.Text = "LINQ";
+            this.uiSum_Simple_LINQ.UseVisualStyleBackColor = true;
+            this.uiSum_Simple_LINQ.Click += new System.EventHandler(this.uiSum_Simple_LINQ_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.uiResult);
+            this.groupBox2.Location = new System.Drawing.Point(12, 364);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(749, 206);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Result";
+            // 
+            // uiResult
+            // 
+            this.uiResult.Location = new System.Drawing.Point(7, 35);
+            this.uiResult.Name = "uiResult";
+            this.uiResult.Size = new System.Drawing.Size(736, 158);
+            this.uiResult.TabIndex = 0;
+            this.uiResult.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uiSum_Projection_LINQ_Execute);
+            this.groupBox3.Controls.Add(this.uiSum_Projection_LINQ_Dynamic);
+            this.groupBox3.Controls.Add(this.uiSum_Projection_LINQ);
+            this.groupBox3.Location = new System.Drawing.Point(211, 28);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(175, 135);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Sum - Projection";
+            // 
+            // uiSum_Projection_LINQ_Execute
+            // 
+            this.uiSum_Projection_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiSum_Projection_LINQ_Execute.Name = "uiSum_Projection_LINQ_Execute";
+            this.uiSum_Projection_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Projection_LINQ_Execute.TabIndex = 2;
+            this.uiSum_Projection_LINQ_Execute.Text = "Execute";
+            this.uiSum_Projection_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiSum_Projection_LINQ_Execute.Click += new System.EventHandler(this.uiSum_Projection_LINQ_Execute_Click);
+            // 
+            // uiSum_Projection_LINQ_Dynamic
+            // 
+            this.uiSum_Projection_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiSum_Projection_LINQ_Dynamic.Name = "uiSum_Projection_LINQ_Dynamic";
+            this.uiSum_Projection_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Projection_LINQ_Dynamic.TabIndex = 1;
+            this.uiSum_Projection_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiSum_Projection_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiSum_Projection_LINQ_Dynamic.Click += new System.EventHandler(this.uiSum_Projection_LINQ_Dynamic_Click);
+            // 
+            // uiSum_Projection_LINQ
+            // 
+            this.uiSum_Projection_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiSum_Projection_LINQ.Name = "uiSum_Projection_LINQ";
+            this.uiSum_Projection_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Projection_LINQ.TabIndex = 0;
+            this.uiSum_Projection_LINQ.Text = "LINQ";
+            this.uiSum_Projection_LINQ.UseVisualStyleBackColor = true;
+            this.uiSum_Projection_LINQ.Click += new System.EventHandler(this.uiSum_Projection_LINQ_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.uiSum_Grouped_LINQ_Execute);
+            this.groupBox4.Controls.Add(this.uiSum_Grouped_LINQ_Dynamic);
+            this.groupBox4.Controls.Add(this.uiSum_Grouped_LINQ);
+            this.groupBox4.Location = new System.Drawing.Point(403, 28);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(175, 135);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Sum - Grouped";
+            // 
+            // uiSum_Grouped_LINQ_Execute
+            // 
+            this.uiSum_Grouped_LINQ_Execute.Location = new System.Drawing.Point(10, 100);
+            this.uiSum_Grouped_LINQ_Execute.Name = "uiSum_Grouped_LINQ_Execute";
+            this.uiSum_Grouped_LINQ_Execute.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Grouped_LINQ_Execute.TabIndex = 2;
+            this.uiSum_Grouped_LINQ_Execute.Text = "Execute";
+            this.uiSum_Grouped_LINQ_Execute.UseVisualStyleBackColor = true;
+            this.uiSum_Grouped_LINQ_Execute.Click += new System.EventHandler(this.uiSum_Grouped_LINQ_Execute_Click);
+            // 
+            // uiSum_Grouped_LINQ_Dynamic
+            // 
+            this.uiSum_Grouped_LINQ_Dynamic.Location = new System.Drawing.Point(10, 60);
+            this.uiSum_Grouped_LINQ_Dynamic.Name = "uiSum_Grouped_LINQ_Dynamic";
+            this.uiSum_Grouped_LINQ_Dynamic.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Grouped_LINQ_Dynamic.TabIndex = 1;
+            this.uiSum_Grouped_LINQ_Dynamic.Text = "LINQ Dynamic";
+            this.uiSum_Grouped_LINQ_Dynamic.UseVisualStyleBackColor = true;
+            this.uiSum_Grouped_LINQ_Dynamic.Click += new System.EventHandler(this.uiSum_Grouped_LINQ_Dynamic_Click);
+            // 
+            // uiSum_Grouped_LINQ
+            // 
+            this.uiSum_Grouped_LINQ.Location = new System.Drawing.Point(10, 20);
+            this.uiSum_Grouped_LINQ.Name = "uiSum_Grouped_LINQ";
+            this.uiSum_Grouped_LINQ.Size = new System.Drawing.Size(100, 23);
+            this.uiSum_Grouped_LINQ.TabIndex = 0;
+            this.uiSum_Grouped_LINQ.Text = "LINQ";
+            this.uiSum_Grouped_LINQ.UseVisualStyleBackColor = true;
+            this.uiSum_Grouped_LINQ.Click += new System.EventHandler(this.uiSum_Grouped_LINQ_Click);
+            // 
+            // Sum
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(771, 582);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "Sum";
+            this.Text = "Sum";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button uiSum_Simple_LINQ_Execute;
+        private System.Windows.Forms.Button uiSum_Simple_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiSum_Simple_LINQ;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RichTextBox uiResult;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button uiSum_Projection_LINQ_Execute;
+        private System.Windows.Forms.Button uiSum_Projection_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiSum_Projection_LINQ;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button uiSum_Grouped_LINQ_Execute;
+        private System.Windows.Forms.Button uiSum_Grouped_LINQ_Dynamic;
+        private System.Windows.Forms.Button uiSum_Grouped_LINQ;
+    }
+}
