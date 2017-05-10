@@ -1,0 +1,220 @@
+using System;
+using System.IO;
+using System.Net;
+using System.Runtime.Serialization.Json;
+
+namespace CEExceptions
+{
+    class Program
+    {
+        //This program follows a set of procedural steps and has the potential to throw a lot of exceptions
+        static void Main(string[] args)
+        {
+            if (args == null)
+                throw new ArgumentNullException("args");
+            if (args.Length == 0)
+                throw new ArgumentException("Value cannot be an empty collection.", "args");
+            //Initialize the variables that will be used in this application
+            WebClient apiConnection = new WebClient();
+            Person thePerson = new Person();
+            String userInput = "";
+            String apiEndPoint = @"https://www.govtrack.us/api/v2/person?limit=10";
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(APIdata));
+            APIdata data = new APIdata();
+
+            //Display introduction
+            Console.WriteLine("The purpose of this application is to enter information about a person. Let's begin.");
+
+            //Ask the user for their name
+            Console.WriteLine("What is the person's full name? (first middle last)");
+            userInput = Console.ReadLine();
+
+            //separate the first, middle, and last names out of the user input and store them in the Person object
+            try
+            {
+                if (userInput != null)
+                {
+                    String[] names = userInput.Split(' ');
+                    thePerson.FirstName = names[0];
+                    thePerson.MiddleName = names[1];
+                    thePerson.LastName = names[2];
+                }
+            }
+
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine("Please provide First, Middle & Last Name with space");
+                return;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return;
+
+            }
+            //ask the user for their age
+            Console.WriteLine("What is the person's age?");
+            userInput = Console.ReadLine();
+
+            //convert the age to an int and store it in the Person object
+            try
+            {
+                if (userInput != null)
+                    thePerson.Age = Convert.ToInt32(userInput);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Please provide age in numeric!");
+                return;
+            }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine("Please provide age in max 3 digits!");
+                return;
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                    Console.WriteLine(ex.InnerException);
+                return;
+            }
+
+            //Ask the user to provide some miscellaneous traits and add them to the Person object
+            Console.WriteLine("Provide some traits of your choice.");
+            Console.WriteLine("How many traits will you add? (Maximum of 5)");
+
+            try
+            {
+                userInput = Console.ReadLine();
+
+                int numTraits = Convert.ToInt32(userInput);
+
+                if (numTraits > 5)
+                    numTraits = 5;
+
+                //ask for as many traits as the user specified and add them to the Person object
+                for (int i = 0; i < numTraits; i++)
+                {
+                    Console.WriteLine("What is the name of this trait?");
+                    string traitName = Console.ReadLine();
+
+                    Console.WriteLine("What is the value of this trait?");
+                    string traitValue = Console.ReadLine();
+
+                    thePerson.AddTrait(traitName, traitValue);
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("Please provide traits in numeric!");
+                return;
+            }
+            catch (OverflowException ex)
+            {
+                Console.WriteLine("Please provide traits in max 1 digit!");
+                return;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return;
+            }
+
+            //display the Person object that the user created
+
+            Console.WriteLine("This is the data you have entered:");
+            Console.WriteLine(thePerson);
+
+
+            //inform the user that we will now be downloading some additional Person objects
+            Console.WriteLine("We will now download some additional people from an online API.");
+
+            //read in some objects from an API; you may not recognize how this code works, but researching what exceptions it may throw is still the same
+            try
+            {
+                Stream apiStream = apiConnection.OpenRead(apiEndPoint);
+
+                if (apiStream != null)
+                {
+                    data = (APIdata)ser.ReadObject(apiStream);
+
+                    apiStream.Close();
+                }
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine("Exception occured while reading data from API.");
+                return;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine("Please provide correct API path.");
+                return;
+            }
+            catch (WebException ex)
+            {
+                switch (((System.Net.HttpWebResponse)ex.Response).StatusCode)
+                {
+                    case HttpStatusCode.BadRequest:
+                        Console.WriteLine("Please provide correct api input parameters.");
+                        break;
+                    case HttpStatusCode.NotFound:
+                        Console.WriteLine("Api url not found.");
+                        break;
+                    case HttpStatusCode.Unauthorized:
+                        Console.WriteLine("Api is not accessible due to wrong id/password");
+                        break;
+                    default:
+                        Console.WriteLine(ex.Message);
+                        break;
+                }
+                return;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                return;
+            }
+
+            //let the user select which of these people that they want to see all of the information about.
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Which of these people would you like to see full details on? (Enter e to exit)");
+                    for (int i = 0; i < data.People.Count; i++)
+                    {
+                        Console.WriteLine(String.Format("{0}.{1} {2}\n", i, data.People[i].FirstName, data.People[i].LastName));
+                    }
+                    userInput = Console.ReadLine();
+
+                    if (userInput != null && userInput.ToLower().Equals("e"))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine(data.People[Convert.ToInt32(userInput)]);
+                    }
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    Console.WriteLine(ex.StackTrace);
+                    return;
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine("Please provide proper input.");
+                    return;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.StackTrace);
+                    return;
+                }
+            }
+            //end of program
+        }
+    }
+}
