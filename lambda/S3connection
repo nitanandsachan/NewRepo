@@ -1,0 +1,16 @@
+AWSCredentials credentials = new BasicAWSCredentials(
+  "<AWS accesskey>", 
+  "<AWS secretkey>"
+);
+
+AmazonS3 s3client = AmazonS3ClientBuilder
+  .standard()
+  .withCredentials(new AWSStaticCredentialsProvider(credentials))
+  .withRegion(Regions.US_EAST_2)
+  .build();
+  
+  s3client.putObject(
+  bucketName, 
+  "Document/DocName.txt", 
+  new File("/Users/user/Document/DocName.txt")
+);
